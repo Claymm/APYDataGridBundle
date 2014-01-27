@@ -48,7 +48,7 @@ class GenerateGridCommand extends GenerateDoctrineCommand
 
         $entityClass = $this->getContainer()->get('doctrine')->getEntityNamespace($bundle).'\\'.$entity;
         $instance = new \ReflectionClass($entityClass);
-        $generator = $this->getGenerator(null);
+        $generator = $this->createGenerator(null);
         $generator->generate($this->getContainer()->get('kernel')->getBundle($bundle), $entityClass, $entity, $group, $this->_extension);
     }
 
